@@ -1,0 +1,13 @@
+\section{Modelagem em grafos}
+
+Para a modelagem do problema, considere os vértices como representações das variáveis do programa,
+e as arestas indicam conflitos entre variáveis — isto é, situações em que duas variáveis estão ativas
+ao mesmo tempo e, portanto, não podem compartilhar o mesmo registrador. O grafo formado por essa relação
+é chamado de \textit{grafo de interferência}.
+
+Dessa forma, uma coloração adequada do grafo de interferência — atribuindo uma cor diferente
+para cada conjunto de variáveis que não podem ser simultâneas — corresponde a uma alocação de registradores sem conflitos.
+
+Se a coloração do grafo puder ser feita com um número de cores menor ou igual ao número de registradores disponíveis,
+então é possível realizar a alocação diretamente. Caso contrário, é necessário utilizar alguma técnica de spilling para
+lidar com as variáveis que não puderem ser atribuidas a um registrador.

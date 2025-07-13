@@ -1,0 +1,39 @@
+\section{Descrição do problema}
+
+O problema de alocação de registradores consiste em atribuir variáveis a um número limitado de registradores durante a compilação de um programa.
+
+\subsection{Objetivo do problema}
+
+O objetivo é estabelecer uma associação entre as variáveis do programa e os registradores disponíveis,
+determinando, sempre que possível, a qual registrador cada variável será atribuída.
+
+Uma solução considerada ótima é aquela que utiliza o menor número possível de registradores para
+alocar todas as variáveis do programa.
+
+Por exemplo, considere um programa com cinco variáveis. Em uma primeira tentativa de alocação, cada variável é atribuída
+a um registrador diferente, totalizando cinco registradores utilizados. Essa é uma solução válida.
+No entanto, se for possível alocar todas as cinco variáveis utilizando apenas três registradores,
+essa será uma solução melhor. Além disso, se o número disponível de registradores for de fato três,
+essa alocação representa uma solução ótima, pois atende à limitação de recursos.
+
+Em certos casos, pode não existir uma solução válida com o número disponível de registradores, ou seja, não é possível
+atribuir cada variável a um registrador sem conflitos. Nesses cenários, a literatura propõe abordagens alternativas,
+como a técnica de \textit{spilling}, que transfere algumas variáveis da memória rápida (registradores) para
+a memória principal (RAM) durante a execução.
+
+\subsection{Entradas esperadas}
+
+A entrada do problema consiste em uma descrição das variáveis do programa e suas interações,
+indicando quais variáveis estão ativas ao mesmo tempo e, portanto, não podem compartilhar o mesmo registrador.
+
+Essa descrição pode assumir diferentes formas, como uma tabela de intervalos de uso de variáveis (lifetimes),
+uma matriz de interferência, ou qualquer outro formato que permita inferir conflitos de uso simultâneo entre variáveis.
+
+\subsection{Saídas esperadas}
+
+A saída deve indicar se existe uma atribuição válida das variáveis aos registradores disponíveis.
+Caso exista, a solução deve apresentar a alocação realizada, especificando a qual registrador cada variável foi atribuída.
+
+Em caso de impossibilidade (isto é, se não for possível realizar a alocação com o número de registradores fornecido),
+a saída deve indicar que não há solução válida. Alternativamente, pode apresentar uma solução com \textit{spilling},
+identificando quais variáveis foram movidas para a memória.

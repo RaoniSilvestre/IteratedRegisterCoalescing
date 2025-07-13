@@ -13,9 +13,9 @@ class RegisterAllocator:
 
         self.initial_moves: Set[frozenset] = {frozenset(m) for m in moves}
 
-        self.live_ranges: List[Optional[Tuple[int, int]]] = self._calculate_live_ranges()
+        self.live_ranges: List[Optional[Tuple[int, int]]] = self._calculate_live_ranges() # O(n * m) where n is num of vars and m is number of usages for each  
 
-        self.adjList: List[Set[int]] = self._build_interference_graph()
+        self.adjList: List[Set[int]] = self._build_interference_graph() # O(n²) where n is num_vars
 
         self.simplifyWorklist: Set[int] = set()
         self.freezeWorklist: Set[int] = set()
@@ -42,21 +42,21 @@ class RegisterAllocator:
         """Executes the main simplify-coalesce-freeze loop."""
         while self.simplifyWorklist or self.worklistMoves or self.freezeWorklist or self.spillWorklist:
             if self.simplifyWorklist:
-                self._simplify()
+                self._simplify()  
             elif self.worklistMoves:
-                self._coalesce()
+                self._coalesce() 
             elif self.freezeWorklist:
-                self._freeze()
+                self._freeze()  
             elif self.spillWorklist:
                 self._select_spill()
         
         self._assign_colors()
 
     def _simplify(self):
-        n = self.simplifyWorklist.pop()
-        self.selectStack.append(n)
+        n = self.simplifyWorklist.pop() # SImplify
+        self.selectStack.append(n) # SelectStack
         for m in self._get_adjacent(n):
-            self._decrement_degree(m)
+            self._decrement_degree(m) # graus
 
     def _coalesce(self):
         move = self.worklistMoves.pop()
@@ -80,8 +80,8 @@ class RegisterAllocator:
             self.activeMoves.add(move)
 
     def _freeze(self):
-        u = self.freezeWorklist.pop()
-        self.simplifyWorklist.add(u)
+        u = self.freezeWorklist.pop() # Freeze.remove
+        self.simplifyWorklist.add(u) # Add simplify
         self._freeze_moves(u)
 
     def _select_spill(self):
@@ -143,8 +143,10 @@ class RegisterAllocator:
                     self.worklistMoves.add(move)
 
     def _combine(self, u: int, v: int):
-        if v in self.freezeWorklist: self.freezeWorklist.remove(v)
-        else: self.spillWorklist.remove(v)
+        if v in self.freezeWorklist: 
+            self.freezeWorklist.remove(v)
+        else: 
+            self.spillWorklist.remove(v)
         
         self.coalescedNodes.add(v)
         self.alias[v] = u
@@ -238,7 +240,7 @@ def rewrite_program(
     original_moves: List[Tuple[int, int]],
     spilled_nodes: Set[int]
 ) -> Tuple[List[List[int]], List[Tuple[int, int]]]:
-    print(f"\n! Rewriting program. Spilling nodes: {spilled_nodes.__sizeof__()}")
+    print(f"\nRewriting program. Spilling nodes: {spilled_nodes.__sizeof__()}")
     new_usages = []
     new_moves = []
     
@@ -286,6 +288,11 @@ def run_complete_allocation(usage_sites: List[List[int]], moves: List[Tuple[int,
             print(f"Final Coloring (new indices): {allocator.color.__sizeof__()}")
             break
         else:
+            if(iteration == 4):
+                print(f"Final Coloring (new indices): {allocator.color.__sizeof__()}")
+                print(f"Spilled nodes at the end: {allocator.spilledNodes.__sizeof__()}")
+                break
+
             current_usages, current_moves = rewrite_program(
                 current_usages,
                 current_moves,
@@ -293,12 +300,15 @@ def run_complete_allocation(usage_sites: List[List[int]], moves: List[Tuple[int,
             )
             iteration += 1
 
-            if(iteration == 4):
-                print(f"Final Coloring (new indices): {allocator.color.__sizeof__()}")
-                print(f"Spilled nodes at the end: {allocator.spilledNodes.__sizeof__()}")
-                break
 
+            def f(it):
+                return len(it) != 1
 
+            not_splited = len(list(filter(f, current_usages)))
+            splitted = len(current_usages) - not_splited
+
+            print(f"Current usages splited: {splitted} ~ Current moves: {len(current_moves)}")
+            print(f"Current usages not splited: {not_splited} ~ Current moves: {len(current_moves)}")
             print(f"Total variables in next iteration: {len(current_usages)}")
             print("-" * 45)
 
@@ -315,7 +325,7 @@ if __name__ == '__main__':
     for i, item in enumerate(liveness):
         print("="*45)
         T1 = time.perf_counter()
-        run_complete_allocation(usage_sites=item["usage_sites"], moves=item["moves"], K=128)
+        run_complete_allocation(usage_sites=item["usage_sites"], moves=item["moves"], K=32)
         T2 = time.perf_counter()
 
         elapsed_time = T2 - T1

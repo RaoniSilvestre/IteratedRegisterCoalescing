@@ -1,0 +1,59 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage[a4paper,top=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{listings}
+\usepackage{xcolor} 
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\addbibresource{referencias.bib}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{gray},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    breaklines=true,
+    tabsize=4,
+    showstringspaces=false,
+}
+
+
+\title{Estado da arte de alocação de registradores}
+
+\author{Raoni Silva, Raul Ramalho}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\noindent Turma de Grafos 35M34 \\ Unidade 2
+
+\newpage
+
+\tableofcontents
+
+
+\include{sections/0-resumo}
+\include{sections/1-introducao}
+\include{sections/2-descricao-problema}
+\include{sections/3-modelo-grafos}
+\include{sections/4-estado-da-arte}
+\include{sections/5-descricao-algoritmo-implementado}
+\include{sections/6-descricao-experimentos}
+\include{sections/7-conclusao}
+\include{sections/8-referencias}
+
+
+\end{document}

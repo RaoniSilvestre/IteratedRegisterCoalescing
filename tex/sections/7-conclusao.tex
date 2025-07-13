@@ -1,0 +1,12 @@
+\section{Conclusão}
+
+Neste trabalho, investigou-se a alocação de registradores via coloração de grafos, comparando
+implementações dos algoritmos de \textcite{chaitin}, \textcite{briggs} e \textcite{irc}.  
+Observou-se que Chaitin apresenta implementação mais simples, mas tende a maior número
+de spills em relação a abordagens refinadas.  
+Briggs introduz heurísticas de coalescing otimista que reduzem moves, porém aumentam
+a complexidade de análise.  
+George-Appel (Iterated Register Coalescing) demonstrou maior taxa de coalescência e menos spills,
+sendo uma melhoria direta em relação do de Briggs.  
+Em suma, refinamentos em coalescing e heurísticas de spill podem melhorar significativamente a geração de código
+sem comprometer o tempo de compilação.

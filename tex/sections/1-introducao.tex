@@ -1,0 +1,25 @@
+\section{Introdução}
+
+Registradores são componentes de memória de uso genérico de uma CPU de um computador.
+Sua função é de armazenar dados e intruções que serão processados de imediato. É a tecnologia de maior nível na hierárquia de memória em um computador.
+
+Pela sua quantidade reduzida, uso intermitente e alta importância, sua ociosidade ou desperdício não é desejável.
+O uso ótimo destes componentes é portante prioritário. Para isso, pesquisa e técnicas de otimização foram desenvolvidas nesta área.
+
+Entre as diversas abordagens disponíveis, uma delas adotadas fora a de coloração de grafos de interferência. Técnica que consiste
+em cada variável em dado programa de computador é representada por um vértice no grafo, e suas arestas representam a coexistência
+do tempo de vida desta variável no mesmo instante. Cada cor atribuída ao grafo corresponde ao número de registradores de propósito geral disponíveis.
+
+Inicialmente, em 1981 nos laboratórios da IBM, o cientista Chaitin e seus colegas de pesquisa desenvolveram o primeiro algoritmo otimização
+do uso de registradores com coloração de grafos de interferência.
+
+O algoritmo é especificado em quatro etapas, construção do grafo de interferência, armazenamento na memória e coloração, spilling
+( armazenamento na ram) e recuperação das variáveis na ram e recosntrução do grafo.
+
+Posteriormente, o cientista \textcite{briggs} e seus colegas da Rice University, interessados no problema decidem refinar o
+algoritmo de \textcite{chaitin} e companhia, resultando na aprimoração das heurísticas na etapa de coalescência, simplificação e spilling(derramamento).
+
+Por fim, em 1996, pelo Bell Labs na equipe de George e Appel et al., novamente, a técnica de coloração de grafos de interferência
+fora otimizada mais uma vez apartir de Briggs e companhia. Agora, a técnica de coalescência admite uma nova heurística, critérios
+mais robustos foram atribuidas como prevenção do pior caso do algoritmo de seus antecessores. Uma nova etapa de congelamento
+fora adiciona antes de ocorrer o spilling. Atingindo, assim, o estado da arte.
