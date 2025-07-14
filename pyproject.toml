@@ -4,4 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "humanize>=4.12.3",
+    "pandas>=2.3.1",
+]

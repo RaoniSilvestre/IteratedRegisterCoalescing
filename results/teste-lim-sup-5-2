@@ -1,0 +1,180 @@
+Data loaded from: data/liveness-1.json
+Data loaded from: data/liveness-2.json
+Data loaded from: data/liveness-3.json
+Data loaded from: data/liveness-4.json
+Data loaded from: data/liveness-5.json
+
+
+
+=============================================
+RUNNING INSTANCE 1
+DESCRIPTION: 10 variáveis, limite superior 5 
+---------------------------------------------
+Total variables in first iteration: 10
+Total moves in first iteration: 5
+---------------------------------------------
+--- Allocation Iteration 1 ---
+Iteration 1 done.
+---------------------------------------------
+
+Coloring successful with no spills.
+Final Coloring (new indices): 336
+---------------------------------------------
+--- Time 1: 0:00:00.000140 ---
+---------------------------------------------
+
+
+
+=============================================
+RUNNING INSTANCE 2
+DESCRIPTION: 100 variáveis, limite superior 5 
+---------------------------------------------
+Total variables in first iteration: 100
+Total moves in first iteration: 5
+---------------------------------------------
+--- Allocation Iteration 1 ---
+Iteration 1 done.
+---------------------------------------------
+
+Rewriting program. Spilling nodes: 2248
+Current usages splited: 187 ~ Current moves: 5
+Current usages not splited: 52 ~ Current moves: 5
+Total variables in next iteration: 239
+---------------------------------------------
+--- Allocation Iteration 2 ---
+Iteration 2 done.
+---------------------------------------------
+
+Rewriting program. Spilling nodes: 200
+Current usages splited: 190 ~ Current moves: 5
+Current usages not splited: 51 ~ Current moves: 5
+Total variables in next iteration: 241
+---------------------------------------------
+--- Allocation Iteration 3 ---
+Iteration 3 done.
+---------------------------------------------
+
+Coloring successful with no spills.
+Final Coloring (new indices): 9288
+---------------------------------------------
+--- Time 2: 0:00:00.022330 ---
+---------------------------------------------
+
+
+
+=============================================
+RUNNING INSTANCE 3
+DESCRIPTION: 200 variáveis, limite superior 5 
+---------------------------------------------
+Total variables in first iteration: 200
+Total moves in first iteration: 5
+---------------------------------------------
+--- Allocation Iteration 1 ---
+Iteration 1 done.
+---------------------------------------------
+
+Rewriting program. Spilling nodes: 8392
+Current usages splited: 476 ~ Current moves: 1
+Current usages not splited: 75 ~ Current moves: 1
+Total variables in next iteration: 551
+---------------------------------------------
+--- Allocation Iteration 2 ---
+Iteration 2 done.
+---------------------------------------------
+
+Rewriting program. Spilling nodes: 200
+Current usages splited: 486 ~ Current moves: 1
+Current usages not splited: 72 ~ Current moves: 1
+Total variables in next iteration: 558
+---------------------------------------------
+--- Allocation Iteration 3 ---
+Iteration 3 done.
+---------------------------------------------
+
+Coloring successful with no spills.
+Final Coloring (new indices): 18496
+---------------------------------------------
+--- Time 3: 0:00:00.092242 ---
+---------------------------------------------
+
+
+
+=============================================
+RUNNING INSTANCE 4
+DESCRIPTION: 500 variáveis, limite superior 5 
+---------------------------------------------
+Total variables in first iteration: 500
+Total moves in first iteration: 5
+---------------------------------------------
+--- Allocation Iteration 1 ---
+Iteration 1 done.
+---------------------------------------------
+
+Rewriting program. Spilling nodes: 32968
+Current usages splited: 1457 ~ Current moves: 1
+Current usages not splited: 121 ~ Current moves: 1
+Total variables in next iteration: 1578
+---------------------------------------------
+--- Allocation Iteration 2 ---
+Iteration 2 done.
+---------------------------------------------
+
+Rewriting program. Spilling nodes: 712
+Current usages splited: 1478 ~ Current moves: 1
+Current usages not splited: 114 ~ Current moves: 1
+Total variables in next iteration: 1592
+---------------------------------------------
+--- Allocation Iteration 3 ---
+Iteration 3 done.
+---------------------------------------------
+
+Coloring successful with no spills.
+Final Coloring (new indices): 73792
+---------------------------------------------
+--- Time 4: 0:00:00.649688 ---
+---------------------------------------------
+
+
+
+=============================================
+RUNNING INSTANCE 5
+DESCRIPTION: 1000 variáveis, limite superior 5 
+---------------------------------------------
+Total variables in first iteration: 1000
+Total moves in first iteration: 5
+---------------------------------------------
+--- Allocation Iteration 1 ---
+Iteration 1 done.
+---------------------------------------------
+
+Rewriting program. Spilling nodes: 32968
+Current usages splited: 3102 ~ Current moves: 2
+Current usages not splited: 157 ~ Current moves: 2
+Total variables in next iteration: 3259
+---------------------------------------------
+--- Allocation Iteration 2 ---
+Iteration 2 done.
+---------------------------------------------
+
+Rewriting program. Spilling nodes: 712
+Current usages splited: 3134 ~ Current moves: 0
+Current usages not splited: 146 ~ Current moves: 0
+Total variables in next iteration: 3280
+---------------------------------------------
+--- Allocation Iteration 3 ---
+Iteration 3 done.
+---------------------------------------------
+
+Rewriting program. Spilling nodes: 200
+Current usages splited: 3136 ~ Current moves: 0
+Current usages not splited: 145 ~ Current moves: 0
+Total variables in next iteration: 3281
+---------------------------------------------
+--- Allocation Iteration 4 ---
+Iteration 4 done.
+---------------------------------------------
+Final Coloring (new indices): 147528
+Spilled nodes at the end: 200
+---------------------------------------------
+--- Time 5: 0:00:03.718177 ---
+---------------------------------------------

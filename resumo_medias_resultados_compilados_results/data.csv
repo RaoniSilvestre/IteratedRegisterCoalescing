@@ -1,0 +1,26 @@
+Tipo de Teste,Instância,Tempo Médio (s),Desvio Padrão (s)
+teste-25pct-moves,10,0.000134,0.000021
+teste-25pct-moves,100,0.061542,0.002191
+teste-25pct-moves,200,0.543954,0.008475
+teste-25pct-moves,500,4.447296,0.132879
+teste-25pct-moves,1000,19.650473,0.864764
+teste-50pct-moves,10,0.000153,0.000030
+teste-50pct-moves,100,0.045364,0.001671
+teste-50pct-moves,200,0.335699,0.002110
+teste-50pct-moves,500,4.229705,0.045509
+teste-50pct-moves,1000,21.501455,0.217648
+teste-lim-sup-30,10,0.000166,0.000043
+teste-lim-sup-30,100,0.328989,0.011429
+teste-lim-sup-30,200,1.377198,0.029020
+teste-lim-sup-30,500,17.993473,0.191330
+teste-lim-sup-30,1000,51.772303,0.286317
+teste-lim-sup-5,10,0.000135,0.000006
+teste-lim-sup-5,100,0.022424,0.000096
+teste-lim-sup-5,200,0.095923,0.007000
+teste-lim-sup-5,500,0.654350,0.004085
+teste-lim-sup-5,1000,3.753158,0.081135
+teste-padrao,10,0.000135,0.000005
+teste-padrao,100,0.095402,0.001427
+teste-padrao,200,0.573312,0.002754
+teste-padrao,500,3.807789,0.014870
+teste-padrao,1000,21.030808,0.207316

@@ -1,0 +1,84 @@
+\section{Descrição dos Experimentos Computacionais}
+
+\subsection{Metodologia de testes}
+
+Os experimentos foram feitos a partir de um gerador customizado de instâncias de testes, onde 
+é possível simular programas da forma mais fiel possível. Foram gerados 15 instâncias de programas 
+com características variadas, e o algoritmo de George-Appel foi executado 3 vezes para cada instância.
+Por meio dessa base de dados é possível obter métricas sobre os resultados obtidos, tais como:
+
+
+\begin{description}
+  \item[Tempo de execução:] Medido em milissegundos, representa o tempo de cada execução individual da heuristica com uma certa entrada de dados.
+  \item[Quantidade de variáveis:] Representa a quantidade total de variáveis ao final do processo de iterativamente simplificar, coaslescer os nós 
+    e reescrever o código.
+  \item[Quantidade de variáveis despejadas:] Ao fim da quarta execução, na nossa implementação o algoritmo desiste de encontrar uma solução melhor que reduza a 
+    quantidade de nós despejados e finaliza sua execução.
+\end{description}
+
+
+\subsubsection{Simulador de programas}
+
+Para conseguir entradas válidas para o algoritmo, é necessário prover de antemão quais são as variáveis, em que linhas as variáveis são utilizadas e também,
+quais são os nós provenientes de operações de moves. Para isso, foi construido um simulador simplificado de programas, ele recebe como entrada parâmetros tais como:
+
+
+\begin{description}
+  \item[ID:] Um identificador para salvar em um arquivo os dados simulados.
+  \item[Número de variáveis:] Quantidade de variáveis que serão simuladas no programa.
+  \item[Quantidade de moves:] Quantidade de arestas que serão criadas como operações de moves, essas arestas são especiais pois, na prática, significa que o início 
+    da vida de uma das variáveis é exatamente no final da vida da outra variável, em uma operação do tipo (x = y). Dessa forma, essa informação deve ser considerada
+    ao gerar a lista de linhas de usos de cada variável.
+  \item[Limite inferior:] Menor quantidade de linhas de código em que a variável é utilizada.
+  \item[Limite superior:] Maior quantidade de linhas de código em que a variável é utilizada.
+  \item[Linhas de código:] Quantidade de linhas de código totais no código.
+\end{description}
+
+Com isso, foram gerados casos de teste variando principalmente o 
+número de variáveis: 10, 100, 200, 500 e 1000. E o limite superior de usos de variável: 5, 15, 30. 
+Com cada combinação desses valores sendo uma instância de entrada de dados para o algoritmo. Além disso, foram alteradas a quantidade de moves, mas os resultados
+não melhoraram ou pioraram. Além disso, como padrão, foi utilizado 32 como a quantidade de registradores disponíveis para coloração.
+
+\subsubsection{Plataforma de execução}
+
+Todas as execuções foram realizadas em uma única máquina para melhorar a consistência dos dados obtidos. A configuração do ambiente foi:
+
+\begin{itemize}
+  \item Hardware:
+    \begin{description}
+      \item[CPU:] Ryzen 5 5600
+      \item[RAM:] 16GB DDR4 2400Mhz
+    \end{description}
+  \item Software:
+    \begin{description}
+      \item[Sistema Operacional:] Fedora 41
+      \item[Linguagem:] Python 3.13
+      \item[Project Manager:] UV(\textcite{uv})
+    \end{description}
+\end{itemize}
+
+
+\subsection{Como reproduzir os testes}
+
+Para a reprodução dos experimentos, recomenda-se o uso da ferramenta de gerenciamento 
+de pacotes \textbf{UV} (\textcite{uv}) para a criação de um ambiente Python consistente.
+
+O processo consiste em dois passos principais:
+
+\begin{enumerate}
+    \item \textbf{Gerar as instâncias de entrada:} Execute o comando abaixo no terminal 
+    para criar os cinco arquivos de teste que servirão de entrada para o algoritmo.
+    
+    \begin{center}
+        \texttt{uv run src/generator.py}
+    \end{center}
+
+    \item \textbf{Executar o algoritmo:} Após a geração das instâncias, utilize o 
+    seguinte comando para executar o algoritmo de coloração de grafos sobre os 
+    cinco arquivos gerados.
+    
+    \begin{center}
+        \texttt{uv run src/george-appel.py}
+    \end{center}
+\end{enumerate}
+
