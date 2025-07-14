@@ -1,12 +1,11 @@
 \section{Conclusão}
 
-Neste trabalho, investigou-se a alocação de registradores via coloração de grafos, comparando
-implementações dos algoritmos de \textcite{chaitin}, \textcite{briggs} e \textcite{irc}.  
-Observou-se que Chaitin apresenta implementação mais simples, mas tende a maior número
-de spills em relação a abordagens refinadas.  
-Briggs introduz heurísticas de coalescing otimista que reduzem moves, porém aumentam
-a complexidade de análise.  
-George-Appel (Iterated Register Coalescing) demonstrou maior taxa de coalescência e menos spills,
-sendo uma melhoria direta em relação do de Briggs.  
-Em suma, refinamentos em coalescing e heurísticas de spill podem melhorar significativamente a geração de código
-sem comprometer o tempo de compilação.
+A presente análise empírica do algoritmo de alocação de registradores de George-Appel, notável por sua complexa natureza iterativa, demonstrou que seu desempenho
+prático é criticamente ditado pelo \textit{live range} das variáveis. Instâncias com \textit{live ranges} longos resultaram em grafos de interferência densos,
+cujo custo computacional foi amplificado não apenas na coloração, mas crucialmente na fase de reescrita do programa (\textit{spill}), que provoca uma explosão
+não linear no número de variáveis. Em contrapartida, \textit{live ranges} curtos geraram grafos esparsos, processados com eficiência significativamente maior.
+
+Reconhece-se que o simulador utilizado não modela o princípio da localidade, podendo gerar cenários de teste mais desafiadores que programas reais. Esta
+limitação aponta para trabalhos futuros, focados no aprimoramento do gerador de instâncias e na validação da heurística em \textit{benchmarks} de compiladores
+estabelecidos. Em suma, o estudo valida que a eficiência do algoritmo de George-Appel está intrinsecamente ligada à topologia do grafo de interferência, um fator
+mais determinante que o número bruto de variáveis.

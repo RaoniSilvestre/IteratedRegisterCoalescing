@@ -56,12 +56,12 @@ um aumento na quantidade de nós em alguma execuções com inicialmente 1000 var
 despejadas.
 
 
-\paragraph{Impacto da quantidade de usos de variáveis (Limite Superior)} A variação no limite superior de usos de variáveis(`k`) apresentou o impacto
+\paragraph{Impacto da quantidade de usos de variáveis (Limite Superior)} A variação no limite superior de usos de variáveis apresentou o impacto
 mais significativo no desempenho.
 \begin{itemize}
-    \item \textbf{Cenário Intenso (k=30):} O teste \texttt{teste-lim-sup-30} foi, de longe, o que apresentou os maiores tempos de execução. Com um grande número de usos de cada variável, a liveness analysis gera intervalos cada vez maiores e com cada vez mais interferências. Além disso, quando as variáveis são divididas em variáveis com tempos de vida menor, a quantidade de variáveis aumenta muito, de forma que a próxima iteração do algoritmo com as novas variáveis demore ainda mais.
-    \item \textbf{Cenário Restrito (k=5):} Inversamente, o teste \texttt{teste-lim-sup-5} foi o mais rápido. Como existiam menos usos de cada variável, duas coisas importantes acontecem, o liveness dela tende a ser menor, e principalmente, quando ela é dividida em outras variáveis temporárias, a quantidade de variáveis para a próxima execução do algoritmo não aumenta tanto assim, melhorando a eficiência do algoritmo.
-    \item \textbf{Cenário Padrão (k=15):} O teste \texttt{teste-padrao}, que representa nosso caso base, situa-se entre os dois extremos, indicando um equilíbrio entre as quantidades de variáveis sendo divididas para as execuções seguintes.
+    \item \textbf{Cenário Intenso (Limite=30):} O teste \texttt{teste-lim-sup-30} foi, de longe, o que apresentou os maiores tempos de execução. Com um grande número de usos de cada variável, a liveness analysis gera intervalos cada vez maiores e com cada vez mais interferências. Além disso, quando as variáveis são divididas em variáveis com tempos de vida menor, a quantidade de variáveis aumenta muito, de forma que a próxima iteração do algoritmo com as novas variáveis demore ainda mais.
+    \item \textbf{Cenário Restrito (Limite=5):} Inversamente, o teste \texttt{teste-lim-sup-5} foi o mais rápido. Como existiam menos usos de cada variável, duas coisas importantes acontecem, o liveness dela tende a ser menor, e principalmente, quando ela é dividida em outras variáveis temporárias, a quantidade de variáveis para a próxima execução do algoritmo não aumenta tanto assim, melhorando a eficiência do algoritmo.
+    \item \textbf{Cenário Padrão (Limite=15):} O teste \texttt{teste-padrao}, que representa nosso caso base, situa-se entre os dois extremos, indicando um equilíbrio entre as quantidades de variáveis sendo divididas para as execuções seguintes.
 \end{itemize}
 
 \subsection{Visualização Gráfica}
@@ -84,13 +84,13 @@ para acomodar a grande variação nos tempos de execução.
         ]
         
         \addplot[mark=square*, red] coordinates {(10,0.000166) (100,0.328989) (200,1.377198) (500,17.993473) (1000,51.772303)};
-        \addlegendentry{k=30}
+        \addlegendentry{Limite=30}
         
         \addplot[mark=triangle*, green] coordinates {(10,0.000135) (100,0.022424) (200,0.095923) (500,0.654350) (1000,3.753158)};
-        \addlegendentry{k=5}
+        \addlegendentry{Limite=5}
         
         \addplot[mark=*, thick, blue] coordinates {(10,0.000135) (100,0.095402) (200,0.573312) (500,3.807789) (1000,21.030808)};
-        \addlegendentry{Padrão (k=15)}
+        \addlegendentry{Padrão (Limite=15)}
         
         \end{axis}
     \end{tikzpicture}
@@ -98,8 +98,8 @@ para acomodar a grande variação nos tempos de execução.
     \label{fig:grafico-resultados}
 \end{figure}
 
-O gráfico evidencia claramente o comportamento discutido: a linha correspondente a \texttt{k=30} (vermelha) se destaca com os maiores
-tempos, enquanto a linha para \texttt{k=5} (verde) permanece consistentemente como a mais rápida para instâncias maiores. As demais configurações
+O gráfico evidencia claramente o comportamento discutido: a linha correspondente a \texttt{Limite=30} (vermelha) se destaca com os maiores
+tempos, enquanto a linha para \texttt{Limite=5} (verde) permanece consistentemente como a mais rápida para instâncias maiores. As demais configurações
 apresentam um desempenho intermediário e muito próximo entre si.
 
 
